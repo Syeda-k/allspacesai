@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Spaces AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Futura+PT:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Futura PT', sans-serif;
+      background-color: #fff;
+      color: #2a2a2a;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px 40px;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px; /* reduced gap */
+      padding: 20px 20px;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; /* reduced gap */
+      margin-top: 20px;
+      margin-bottom: 0; /* removed bottom margin */
+    }
+
+    .intro .tagline {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .intro h1 {
+      font-size: 26px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .video-placeholder {
+      width: 90%;
+      max-width: 900px;
+    }
+
+    .video-placeholder video {
+      width: 100%;
+      display: block;
+    }
+
+    .cta {
+      margin: 0; /* remove extra margin */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; /* tighter */
+    }
+
+    .cta h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .search-bar-link img {
+      width: 250px;
+      max-width: 90%;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .search-bar-link img:hover {
+      transform: scale(1.02);
+    }
+
+    footer {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #2a2a2a;
+      margin: 0; /* remove extra margin */
+    }
+
+    @media (max-width: 768px) {
+      .video-placeholder {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Logo.png" alt="All Spaces AI Logo" class="logo">
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="tagline">Experience spaces like you’ve never imagined</p>
+      <h1>Welcome to All Spaces AI</h1>
+      <div class="video-placeholder">
+        <video src="shutterstock_24086077.mp4" autoplay muted loop></video>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>IMAGINE YOUR PERFECT SPACE</h2>
+      <a href="mailto:syed@allspacesai.com?subject=My%20Space%20Idea" class="search-bar-link">
+        <img src="All_Spaces_Search_Bar_Logo-removebg-preview.png" alt="Search Bar">
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Copyright 2025 All Spaces AI Limited. All rights reserved.</p>
+  </footer>
+</body>
+</html>
