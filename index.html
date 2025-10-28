@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Spaces AI</title>
   <link href="https://fonts.googleapis.com/css2?family=Futura+PT:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -13,113 +14,196 @@
       background-color: #fff;
       color: #2a2a2a;
       text-align: center;
+      overflow-x: hidden;
     }
 
+    /* --- HEADER --- */
     header {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 20px 40px;
+      padding-top: 40px;
+      animation: fadeIn 1.2s ease forwards;
     }
 
-    .logo {
-      height: 50px;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px; /* reduced gap */
-      padding: 20px 20px;
-    }
-
-    .intro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px; /* reduced gap */
-      margin-top: 20px;
-      margin-bottom: 0; /* removed bottom margin */
-    }
-
-    .intro .tagline {
+    .tagline {
       font-size: 18px;
       margin: 0;
+      color: #2a2a2a;
     }
 
-    .intro h1 {
+    h1 {
       font-size: 26px;
       font-weight: 600;
-      margin: 0;
+      margin: 25px 0 15px;
     }
 
-    .video-placeholder {
-      width: 90%;
-      max-width: 900px;
+    .main-logo {
+      width: 70px;
+      margin: 10px 0 25px;
+      animation: float 4s ease-in-out infinite;
     }
 
-    .video-placeholder video {
-      width: 100%;
-      display: block;
+    /* --- CIRCULAR IMAGES --- */
+    .circle-wave-section {
+      position: relative;
+      text-align: center;
+      margin-bottom: 0;
     }
 
-    .cta {
-      margin: 0; /* remove extra margin */
+    .image-row {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 10px; /* tighter */
+      flex-wrap: wrap;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+      margin-bottom: -40px; /* pull closer to wave */
+    }
+
+    .image-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    /* --- staggered animation --- */
+    .image-circle:nth-child(1) { animation-delay: 0.2s; }
+    .image-circle:nth-child(2) { animation-delay: 0.3s; }
+    .image-circle:nth-child(3) { animation-delay: 0.4s; }
+    .image-circle:nth-child(4) { animation-delay: 0.5s; }
+    .image-circle:nth-child(5) { animation-delay: 0.6s; }
+    .image-circle:nth-child(6) { animation-delay: 0.7s; }
+    .image-circle:nth-child(7) { animation-delay: 0.8s; }
+    .image-circle:nth-child(8) { animation-delay: 0.9s; }
+
+    .image-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .image-circle:hover img {
+      transform: scale(1.1);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* --- WAVE IMAGE --- */
+    .wave-line {
+      width: 100%;
+      max-width: 900px;
+      height: 180px;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      top: -20px; /* overlap upward */
+      z-index: 1;
+      animation: waveFloat 4s ease-in-out infinite;
+    }
+
+    /* --- CTA SECTION --- */
+    .cta {
+      text-align: center;
+      margin-top: -10px; /* pull closer */
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease forwards;
     }
 
     .cta h2 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
-      margin: 0;
+      margin: 5px 0 10px;
     }
 
-    .search-bar-link img {
-      width: 250px;
+    .cta a img {
+      width: 230px;
       max-width: 90%;
-      cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease;
     }
 
-    .search-bar-link img:hover {
-      transform: scale(1.02);
+    .cta a img:hover {
+      transform: scale(1.05);
     }
 
+    /* --- FOOTER --- */
     footer {
-      padding: 10px 20px;
       font-size: 14px;
+      padding: 5px 0 15px;
       color: #2a2a2a;
-      margin: 0; /* remove extra margin */
+      animation: fadeIn 2s ease forwards;
     }
 
+    /* --- ANIMATIONS --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes waveFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      .video-placeholder {
-        width: 95%;
+      .image-circle {
+        width: 80px;
+        height: 80px;
+      }
+      .main-logo {
+        width: 60px;
+      }
+      .wave-line {
+        height: 120px;
+        top: -10px;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="Logo.png" alt="All Spaces AI Logo" class="logo">
+    <p class="tagline">Experience spaces like you’ve never imagined</p>
+    <h1>Welcome to All Spaces AI</h1>
+    <img src="Logo.png" alt="All Spaces AI Logo" class="main-logo">
   </header>
 
   <main>
-    <section class="intro">
-      <p class="tagline">Experience spaces like you’ve never imagined</p>
-      <h1>Welcome to All Spaces AI</h1>
-      <div class="video-placeholder">
-        <video src="shutterstock_24086077.mp4" autoplay muted loop></video>
+    <div class="circle-wave-section">
+      <div class="image-row">
+        <div class="image-circle"><img src="Sleep-164595.jpg" alt="Space 1"></div>
+        <div class="image-circle"><img src="Taxi-4606397.jpg" alt="Space 2"></div>
+        <div class="image-circle"><img src="Spa-21837-3212164.jpg" alt="Space 3"></div>
+        <div class="image-circle"><img src="Workspace 1159039-2507010.jpg" alt="Space 4"></div>
+        <div class="image-circle"><img src="Workspace2-7964513.jpg" alt="Space 5"></div>
+        <div class="image-circle"><img src="Restaurant2.jpg" alt="Space 6"></div>
+        <div class="image-circle"><img src="Conference Room-29397977.jpg" alt="Space 7"></div>
+        <div class="image-circle"><img src="Flight-912050.jpg" alt="Space 8"></div>
       </div>
-    </section>
+
+      <img src="iStock-2168246650.jpg" alt="Wave Line" class="wave-line">
+    </div>
 
     <section class="cta">
       <h2>IMAGINE YOUR PERFECT SPACE</h2>
-      <a href="mailto:syed@allspacesai.com?subject=My%20Space%20Idea" class="search-bar-link">
+      <a href="mailto:syed@allspacesai.com?subject=My%20Perfect%20Space%20Idea">
         <img src="All_Spaces_Search_Bar_Logo-removebg-preview.png" alt="Search Bar">
       </a>
     </section>
@@ -128,5 +212,6 @@
   <footer>
     <p>© Copyright 2025 All Spaces AI Limited. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
